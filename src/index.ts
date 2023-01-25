@@ -19,7 +19,7 @@ const collectAllImageUrls = (data: Block) => {
 // console.log(collectAllImageUrls(blocks));
 
 const changeIDs = (data: Block, id1: string, id2: string): Block => {
-    const filteredChildren: any = (data: Block) => {
+    const filteredChildren = (data: Block) : Block | null => {
         if (data.id === id1) {
             return data;
         }
@@ -34,7 +34,7 @@ const changeIDs = (data: Block, id1: string, id2: string): Block => {
         return null;
     }
 
-    const filteredParent: any = (data: Block) => {
+    const filteredParent: any = (data: Block) : Block | null => {
         if (data.children && data.children.length > 0) {
             for (let i = 0; i < data.children.length; i++) {
                 if (data.children[i].id === id2) {
